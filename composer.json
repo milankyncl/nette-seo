@@ -1,0 +1,19 @@
+{
+    "name": "milankyncl/nette-seo",
+    "description": "Nette SEO module for building SEO optimized website.",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "milankyncl",
+            "email": "kontakt@milankyncl.cz"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "nette/nette": ">= 2.2.0"
+    },
+    "autoload": {
+        "classmap": ["src/"]
+    }
+}
