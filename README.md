@@ -97,7 +97,13 @@ composer require milankyncl/nette-seo
        
        <html>
            <head>
-               {control seoMetaTags} {* Will genereate all custom meta tags, then title, and finally seo tags *}
+               {* 
+                * Will genereate all custom meta tags, 
+                * then title and finally seo tags 
+                *}
+               {control seoMetaTags}
+            
+               {* Your head content *}
                <link rel="stylesheet" href="style.css">   
            </head>
            <body>
@@ -112,7 +118,7 @@ composer require milankyncl/nette-seo
 
 **site_name**
 
-Name of your site, will be showed in `<title>` tag after/before page title and separator. Will set `og:title` and `twitter:title` meta properies.
+Name of your site, will be showed in `<title>` tag after/before page title and separator. Will set `og:title`, `twitter:title`, `og:site_name` meta properies.
 ```
 default: null
 options: string
@@ -128,7 +134,7 @@ options: string
 
 **type**
 
-Type of your object/content. More info about the property at[ogp.me#types](http://ogp.me/#types).
+Type of your object/content. More info about the property at [ogp.me#types](http://ogp.me/#types).
 ```
 default: 'website'
 options: string
