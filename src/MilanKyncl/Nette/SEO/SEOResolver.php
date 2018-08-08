@@ -76,15 +76,31 @@ class SEOResolver {
 		$this->separator    = $config['separator'];
 		$this->description  = $config['description'];
 
+		$this->setTag('og:site_name', $this->site_name);
+
 		foreach($config['customTags'] as $name => $content) {
 
 			$this->setTag($name, $content, true);
 		}
 
-		$this->setTag([ 'og:type' ], $config['type']);
+		$this->setTag('og:type', $config['type']);
+
 		$this->setTag([ 'og:title', 'twitter:title' ], $this->getTitle());
+
 		$this->setTag([ 'og:description', 'twitter:description' ], $config['description']);
-		$this->setImageUrl($config['image']);
+
+		if(is_array($config['image'])) {
+
+			if(!isset($config['image']['url']))
+				throw new InvalidArgumentException('"url" parameter must be set in seo:image configuration.');
+
+			$this->setImageUrl($config['image']['url'], isset($config['image']['width']) ? $config['image']['width'] : null, isset($config['image']['height']) ? $config['image']['height'] : null);
+
+		} else {
+
+			$this->setImageUrl($config['image']);
+		}
+
 		$this->setTag([ 'og:url' ], (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http') . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI']);
 	}
 
