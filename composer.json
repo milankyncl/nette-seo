@@ -1,6 +1,6 @@
 {
     "name": "milankyncl/nette-seo",
-    "version": "1.1.1",
+    "version": "v1.1.2",
     "description": "Nette SEO module for building SEO optimized website.",
     "type": "library",
     "license": "GPL-3.0-or-later",
