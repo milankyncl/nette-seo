@@ -166,11 +166,6 @@ class SEOResolver {
 
 	public function setImageUrl($url, $width = null, $height = null) {
 
-		if(file_exists($url)) {
-
-			bdump('file exists');
-		}
-
 		$this->setTag([ 'og:image', 'twitter:image' ], $url);
 
 		$this->setTag('og:image:width', $width);
@@ -192,7 +187,7 @@ class SEOResolver {
 
 	public function getSEOTags() {
 
-		return $this->seoTags;
+		return $this->metaTags;
 	}
 
 	/**
